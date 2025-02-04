@@ -203,18 +203,236 @@
         }
 
         .motto-section {
+            position: relative;
+            overflow: hidden;
             padding: 4rem 5%;
             text-align: center;
             background: #000;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .motto {
-            font-family: 'Junicode', serif;
+        .neural-network {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.5;
+            overflow: hidden;
+        }
+
+        .health-wave {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(21, 59, 228, 0.4) 25%,
+                rgba(21, 59, 228, 0.8) 50%,
+                rgba(21, 59, 228, 0.4) 75%,
+                transparent 100%
+            );
+            opacity: 0;
+            transform-origin: left;
+            animation: waveFlow 4s ease-in-out infinite;
+        }
+
+        .neural-node {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #2b4eff;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(21, 59, 228, 0.8),
+                       0 0 30px rgba(21, 59, 228, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+            transition: all 3s ease-in-out;
+        }
+
+        .neural-connection {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, rgba(43, 78, 255, 0.1), rgba(43, 78, 255, 0.8), rgba(43, 78, 255, 0.1));
+            transform-origin: left;
+            animation: connectionFlow 3s linear infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        @keyframes connectionFlow {
+            0% {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scaleX(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+        }
+
+        @keyframes waveFlow {
+            0% {
+                opacity: 0;
+                transform: scaleX(0) translateX(-50%);
+            }
+            20% {
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scaleX(1) translateX(50%);
+            }
+        }
+
+        .typewriter-container {
+            position: relative;
+            z-index: 2;
+            font-family: 'Courier New', monospace;
             font-size: 2.5rem;
             color: #fff;
-            line-height: 1.4;
-            max-width: 800px;
-            margin: 0 auto;
+            line-height: 1.6;
+            text-align: center;
+            display: inline-block;
+            padding: 2rem;
+        }
+
+        .line-1 {
+            min-height: 3rem;
+            margin: 0.5rem 0;
+            position: relative;
+            z-index: 1;
+            font-size: 2.5rem;
+        }
+
+        .line-2 {
+            min-height: 3rem;
+            margin: 1rem 0;
+            position: relative;
+            z-index: 1;
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+
+        .typewriter-text {
+            position: relative;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(21, 59, 228, 0.3);
+            margin-right: 0.5rem;
+            animation: neonGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 2.8rem;
+            background-color: #153be4;
+            position: absolute;
+            animation: blink 1s step-end infinite, neonPulse 1.5s ease-in-out infinite alternate;
+            box-shadow: 0 0 8px rgba(21, 59, 228, 0.8),
+                       0 0 20px rgba(21, 59, 228, 0.6),
+                       0 0 40px rgba(21, 59, 228, 0.4);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                           0 0 20px rgba(21, 59, 228, 0.8),
+                           0 0 30px rgba(21, 59, 228, 0.6);
+            }
+            to {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+                           0 0 10px rgba(21, 59, 228, 0.8),
+                           0 0 15px rgba(21, 59, 228, 0.6);
+            }
+        }
+
+        @keyframes neonPulse {
+            from {
+                box-shadow: 0 0 8px rgba(21, 59, 228, 0.8),
+                           0 0 20px rgba(21, 59, 228, 0.6),
+                           0 0 40px rgba(21, 59, 228, 0.4);
+            }
+            to {
+                box-shadow: 0 0 4px rgba(21, 59, 228, 0.8),
+                           0 0 10px rgba(21, 59, 228, 0.6),
+                           0 0 20px rgba(21, 59, 228, 0.4);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .typewriter-container {
+                padding: 1rem;
+            }
+
+            .line-1 {
+                font-size: 1.8rem;
+                min-height: 2.5rem;
+            }
+
+            .line-2 {
+                font-size: 2.3rem;
+                min-height: 2.8rem;
+            }
+
+            .cursor {
+                height: 2.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .line-1 {
+                font-size: 1.4rem;
+                min-height: 2rem;
+            }
+
+            .line-2 {
+                font-size: 1.8rem;
+                min-height: 2.3rem;
+            }
+
+            .cursor {
+                height: 1.8rem;
+            }
+        }
+
+        /* Reduce animations for users who prefer reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .typewriter-text {
+                animation: none;
+                text-shadow: 0 0 10px rgba(21, 59, 228, 0.3);
+            }
+
+            .cursor {
+                animation: blink 1s step-end infinite;
+                box-shadow: none;
+            }
         }
 
         .features-section {
@@ -832,6 +1050,126 @@
             transform: scaleX(1);
         }
 
+        .score-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .score-card {
+            background: rgba(21, 59, 228, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .score-card::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(
+                45deg,
+                #153be4,
+                #80D1FF,
+                #153be4
+            );
+            z-index: -1;
+            border-radius: 15px;
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .score-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(21, 59, 228, 0.2);
+        }
+
+        .score-card:hover::after {
+            opacity: 1;
+            animation: borderGlow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            from {
+                filter: brightness(1) saturate(1);
+            }
+            to {
+                filter: brightness(1.3) saturate(1.5);
+            }
+        }
+
+        .score-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(21, 59, 228, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .score-value {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #153be4;
+            margin: 1rem 0;
+            font-family: 'Poppins', sans-serif;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .score-card.visible .score-value {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .score-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .score-description {
+            color: #6e6e6e;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .learn-more-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            color: #153be4;
+            border: 1px solid #153be4;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .learn-more-btn:hover {
+            background: #153be4;
+            color: #fff;
+        }
+
+        .learn-more-btn span {
+            margin-left: 0.5rem;
+        }
+
     </style>
 </head>
 <body>
@@ -878,7 +1216,18 @@
     </section>
 
     <section class="motto-section">
-        <h2 class="motto">Trust. Science. Precision.<br>Your wellness, redefined.</h2>
+        <div class="neural-network" id="neuralNetwork"></div>
+        <div class="typewriter-container">
+            <div class="line-1">
+                <span class="typewriter-text" id="word1"></span>
+                <span class="typewriter-text" id="word2"></span>
+                <span class="typewriter-text" id="word3"></span>
+            </div>
+            <div class="line-2">
+                <span class="typewriter-text" id="word4"></span>
+            </div>
+            <span class="cursor">|</span>
+        </div>
     </section>
 
     <section class="features-section">
@@ -888,18 +1237,38 @@
             Unlike generic wellness apps, EPI is built on decades of metabolic research and integrates real-time health data with AI-driven insights.
         </p>
         
-        <div class="features-list">
-            <div class="feature-item">
-                <span class="feature-icon">📊</span>
-                <span>Metabolic Score: See how your body processes food & energy.</span>
+        <div class="score-cards">
+            <div class="score-card">
+                <div class="score-title">📊 Metabolic Score</div>
+                <div class="score-value" data-value="92">0</div>
+                <div class="score-description">
+                    Advanced analysis of how your body processes food & energy, providing real-time metabolic insights.
+                </div>
+                <button class="learn-more-btn">
+                    Learn More <span>→</span>
+                </button>
             </div>
-            <div class="feature-item">
-                <span class="feature-icon">🧬</span>
-                <span>Nutritional Score: AI-curated insights for better diet decisions.</span>
+            
+            <div class="score-card">
+                <div class="score-title">🧬 Nutritional Score</div>
+                <div class="score-value" data-value="88">0</div>
+                <div class="score-description">
+                    AI-curated insights for optimal diet decisions, personalized to your unique needs.
+                </div>
+                <button class="learn-more-btn">
+                    Learn More <span>→</span>
+                </button>
             </div>
-            <div class="feature-item">
-                <span class="feature-icon">⚡</span>
-                <span>Bio-Metabolic Age: Your true metabolic health age—not just a number.</span>
+            
+            <div class="score-card">
+                <div class="score-title">⚡ Bio-Metabolic Age</div>
+                <div class="score-value" data-value="28">0</div>
+                <div class="score-description">
+                    Your true metabolic health age, calculated using advanced AI algorithms.
+                </div>
+                <button class="learn-more-btn">
+                    Learn More <span>→</span>
+                </button>
             </div>
         </div>
 
@@ -940,27 +1309,21 @@
 
         <div class="steps-container">
             <div class="step-item">
-                <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-                </svg>
+                
                 <div>
                     <span class="step-number">01</span>
                     <span class="step-content">Analyzes Your Data: Continuous health tracking, from glucose trends to nutrient intake.</span>
                 </div>
             </div>
             <div class="step-item">
-                <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                </svg>
+                
                 <div>
                     <span class="step-number">02</span>
                     <span class="step-content">Learns & Adapts: AI-powered personalization adjusts advice in real-time.</span>
                 </div>
             </div>
             <div class="step-item">
-                <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
+                
                 <div>
                     <span class="step-number">03</span>
                     <span class="step-content">Predicts & Optimizes: Advanced AI forecasts future health risks and suggests preventive actions.</span>
@@ -1181,8 +1544,9 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    if (entry.target.classList.contains('counter-trigger')) {
-                        animateCounter(entry.target);
+                    if (entry.target.classList.contains('score-card')) {
+                        const scoreValue = entry.target.querySelector('.score-value');
+                        animateScoreValue(scoreValue);
                     }
                 }
             });
@@ -1243,6 +1607,209 @@
         document.querySelectorAll('.graph-point').forEach(el => {
             metricsObserver.observe(el);
         });
+
+        // Typewriter animation
+        function typeWriter(element, text, delay = 80) {
+            return new Promise(resolve => {
+                let i = 0;
+                const cursor = document.querySelector('.cursor');
+                const container = document.querySelector('.typewriter-container');
+                
+                function type() {
+                    if (i < text.length) {
+                        element.textContent += text.charAt(i);
+                        // Calculate cursor position
+                        const elementRect = element.getBoundingClientRect();
+                        const containerRect = container.getBoundingClientRect();
+                        const cursorLeft = elementRect.left - containerRect.left + element.offsetWidth;
+                        
+                        cursor.style.left = `${cursorLeft}px`;
+                        cursor.style.top = `${elementRect.top - containerRect.top + (elementRect.height / 2)}px`;
+                        cursor.style.transform = 'translateY(-50%)';
+                        
+                        i++;
+                        setTimeout(type, delay);
+                    } else {
+                        resolve();
+                    }
+                }
+                type();
+            });
+        }
+
+        async function startTypewriter() {
+            const words = {
+                word1: 'Trust,',
+                word2: 'Science,',
+                word3: 'Precision.',
+                word4: 'Your wellness, ',
+                word5: 'redefined.'
+            };
+
+            const cursor = document.querySelector('.cursor');
+            cursor.style.opacity = '1';
+
+            // Type first line
+            for (let i = 1; i <= 3; i++) {
+                const element = document.getElementById(`word${i}`);
+                await typeWriter(element, words[`word${i}`]);
+                await new Promise(resolve => setTimeout(resolve, 300)); // Pause between words
+            }
+
+            // Add delay before second line
+            await new Promise(resolve => setTimeout(resolve, 800));
+
+            // Move cursor to second line
+            cursor.style.top = '3.2rem';
+            
+            // Type "Your wellness,"
+            const lastWord = document.getElementById('word4');
+            await typeWriter(lastWord, words.word4);
+            
+            // Add extra delay before "redefined"
+            await new Promise(resolve => setTimeout(resolve, 600));
+            
+            // Type "redefined"
+            await typeWriter(lastWord, words.word5);
+
+            // Keep cursor at its final position
+            const elementRect = lastWord.getBoundingClientRect();
+            const containerRect = document.querySelector('.typewriter-container').getBoundingClientRect();
+            const finalPosition = elementRect.left - containerRect.left + lastWord.offsetWidth;
+            cursor.style.left = `${finalPosition}px`;
+        }
+
+        // Start the animation when the section is in view
+        const mottoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startTypewriter();
+                    mottoObserver.disconnect(); // Only run once
+                }
+            });
+        }, { threshold: 0.5 });
+
+        mottoObserver.observe(document.querySelector('.motto-section'));
+
+        // Neural network background animation
+        function createNeuralNetwork() {
+            const container = document.getElementById('neuralNetwork');
+            const nodeCount = 30;
+            const nodes = [];
+
+            // Create health waves
+            function createHealthWave() {
+                const wave = document.createElement('div');
+                wave.className = 'health-wave';
+                wave.style.top = `${20 + Math.random() * 60}%`;
+                wave.style.animationDelay = `${Math.random() * 2}s`;
+                container.appendChild(wave);
+
+                // Remove wave after animation
+                setTimeout(() => {
+                    wave.remove();
+                }, 4000);
+            }
+
+            // Periodically create new waves
+            setInterval(createHealthWave, 2000);
+
+            // Create nodes with enhanced behavior
+            for (let i = 0; i < nodeCount; i++) {
+                const node = document.createElement('div');
+                node.className = 'neural-node';
+                
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                node.style.left = `${left}%`;
+                node.style.top = `${top}%`;
+                
+                container.appendChild(node);
+                nodes.push({ 
+                    element: node, 
+                    x: left, 
+                    y: top,
+                    dx: (Math.random() - 0.5) * 0.05,
+                    dy: (Math.random() - 0.5) * 0.05,
+                    energy: Math.random()
+                });
+            }
+
+            function updateNodePositions() {
+                nodes.forEach(node => {
+                    node.x += node.dx;
+                    node.y += node.dy;
+                    node.energy = Math.sin(Date.now() * 0.001 * node.dx) * 0.5 + 0.5;
+
+                    if (node.x <= 0 || node.x >= 100) node.dx *= -1;
+                    if (node.y <= 0 || node.y >= 100) node.dy *= -1;
+
+                    node.element.style.left = `${node.x}%`;
+                    node.element.style.top = `${node.y}%`;
+                    node.element.style.transform = `scale(${0.8 + node.energy * 0.4})`;
+                    node.element.style.opacity = 0.3 + node.energy * 0.7;
+                });
+
+                // Update connections with energy transfer
+                container.querySelectorAll('.neural-connection').forEach(conn => conn.remove());
+                nodes.forEach((node, i) => {
+                    nodes.slice(i + 1).forEach(targetNode => {
+                        const dx = targetNode.x - node.x;
+                        const dy = targetNode.y - node.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 30 && (node.energy > 0.5 || targetNode.energy > 0.5)) {
+                            const connection = document.createElement('div');
+                            connection.className = 'neural-connection';
+                            
+                            const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+                            
+                            connection.style.width = `${distance}%`;
+                            connection.style.left = `${node.x}%`;
+                            connection.style.top = `${node.y}%`;
+                            connection.style.transform = `rotate(${angle}deg)`;
+                            connection.style.opacity = Math.max(node.energy, targetNode.energy) * 0.5;
+                            
+                            container.appendChild(connection);
+                        }
+                    });
+                });
+
+                requestAnimationFrame(updateNodePositions);
+            }
+
+            updateNodePositions();
+        }
+
+        // Initialize neural network when motto section is visible
+        const neuralObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    createNeuralNetwork();
+                    neuralObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.1 });
+
+        neuralObserver.observe(document.querySelector('.motto-section'));
+
+        function animateScoreValue(element) {
+            const value = parseInt(element.dataset.value);
+            const duration = 2000;
+            const start = 0;
+            const increment = value / (duration / 16);
+            
+            let current = start;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= value) {
+                    element.textContent = value;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.round(current);
+                }
+            }, 16);
+        }
     </script>
 </body>
 </html>
