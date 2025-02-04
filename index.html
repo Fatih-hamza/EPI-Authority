@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPI - Precision Wellness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Junicode&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .header {
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+            }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            background: linear-gradient(90deg, #153be4, #80D1FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero strong {
+            color: #6e6e6e;
+        }
+
+        .hero {
+  position: relative;
+  text-align: center;
+  padding: 50px;
+  color: white;
+  background-color: #0d0d0d; /* Dark theme */
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-images-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    flex-direction: column;
+}
+
+.hero-images-container-row1 {
+    
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    
+
+}
+
+.hero-images-container-row2 {
+    padding-top: 0px;
+    margin-top: 0px;
+    padding-left: 80px;
+    padding-right: 80px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 100vw;
+    gap: 160px;
+
+}
+
+        
+
+
+
+    .waitlist-form {
+            padding-bottom: 0px;
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            width: 100%;
+            
+        }
+
+    .waitlist-form input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+    .waitlist-form button {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            background: #153be4;
+            color: #fff;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+    .waitlist-form button:hover {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .success-message {
+            display: none;
+            color: #4CAF50;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+    .footer {
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .motto-section {
+            padding: 4rem 5%;
+            text-align: center;
+            background: #000;
+        }
+
+        .motto {
+            font-family: 'Junicode', serif;
+            font-size: 2.5rem;
+            color: #fff;
+            line-height: 1.4;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .features-section {
+            padding: 6rem 5%;
+            text-align: center;
+            background: #000;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #ffffff, #6e6e6e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .features-tagline {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: #153be4;
+            margin-bottom: 2rem;
+        }
+
+        .features-intro {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-list {
+            text-align: left;
+            margin-bottom: 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #153be4;
+        }
+
+        .research-note {
+            font-family: 'Poppins', sans-serif;
+            color: #6e6e6e;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: #153be4;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .ai-section {
+            padding: 6rem 5%;
+            text-align: center;
+            background: #000;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ai-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: #153be4;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .ai-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.4rem;
+            margin-bottom: 2rem;
+            color: #fff;
+        }
+
+        .ai-description {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .steps-container {
+            text-align: left;
+            margin: 3rem 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .step-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: #153be4;
+            margin-right: 1rem;
+            font-weight: 600;
+        }
+
+        .step-content {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+
+        .ai-note {
+            font-family: 'Poppins', sans-serif;
+            font-style: italic;
+            color: #6e6e6e;
+            margin: 2rem 0;
+            font-size: 1.4rem;
+            font-weight: 600;
+            background: linear-gradient(90deg, #153be4, #450581);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding: 1rem;
+            border-left: 4px solid #153be4;
+            border-right: 4px solid #450581;
+            display: inline-block;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .ai-note:hover {
+            transform: scale(1.05);
+        }
+
+        .icon-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            margin-right: 1rem;
+            color: #153be4;
+        }
+
+        html {
+            scroll-behavior: smooth;  /* Enable smooth scrolling for the whole page */
+        }
+
+        /* Animation for section reveal */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .research-section {
+            padding: 6rem 5%;
+            text-align: center;
+            background: #000;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .research-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #ffffff, #153be4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .research-intro {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: #fff;
+            max-width: 800px;
+            margin: 2rem auto;
+            line-height: 1.8;
+        }
+
+        .research-list {
+            text-align: left;
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: rgba(21, 59, 228, 0.05);
+            border-radius: 8px;
+        }
+
+        .research-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+        }
+
+        .research-icon {
+            color: #153be4;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .research-cta {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            color: #6e6e6e;
+            margin: 2rem 0;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #153be4, #80D1FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .testimonial-card {
+            position: relative;
+            padding: 1px;
+            border-radius: 12px;
+            background: #1a1a1a;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            padding: 1px;
+            background: linear-gradient(45deg, #153be4, #80D1FF);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        .testimonial-content {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 12px;
+            height: 100%;
+        }
+
+        .testimonial-content p {
+            color: #fff;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-author img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+        }
+
+        .author-info h4 {
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .author-info span {
+            color: #6e6e6e;
+            font-size: 0.9rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Hover Effects */
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-card:hover::before {
+            background: linear-gradient(45deg, #153be4, #80D1FF);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .testimonials h2 {
+                font-size: 2rem;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        } 
+
+ 
+
+
+        
+
+        .interactive-section {
+            padding: 6rem 5%;
+            text-align: center;
+            background: #000;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .interactive-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #153be4, #80D1FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .interactive-subtitle {
+            font-family: 'Poppins', sans-serif;
+            color: #6e6e6e;
+            font-size: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .interactive-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .interactive-feature {
+            background: rgba(21, 59, 228, 0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: left;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(21, 59, 228, 0.1);
+        }
+
+        .interactive-feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .feature-description {
+            font-family: 'Poppins', sans-serif;
+            color: #6e6e6e;
+            line-height: 1.6;
+        }
+
+        .final-cta {
+            padding: 8rem 5%;
+            text-align: center;
+            background: #000;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #153be4, transparent);
+        }
+
+        .final-cta-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #153be4, #80D1FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .final-cta-subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            color: #6e6e6e;
+            margin-bottom: 3rem;
+        }
+
+        .final-cta-note {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: #6e6e6e;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        .final-cta .cta-button {
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">EPI</a>
+        <nav class="nav-links">
+            <a href="#">About</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+
+        <div class="hero-images-container">
+        <div class="hero-images-container-row1">
+            <img style="width: 180px; padding-top: 100px; padding-right: 50px;" src="assets/images.png" class="image image1" alt="Image 1">
+            <div>
+            <h1>Precision Wellness<br>Served at your fingertips</h1>
+            <p>
+            EPI users can <strong>track, measure, and improve their metabolic and nutritional health</strong> with data-driven precision.
+            </p>
+            </div>
+            
+            <img style="width: 180px; padding-top: 100px; padding-left: 50px;" src="assets/intersection.png" class="image image2" alt="Image 2">
+        </div>
+        <form class="waitlist-form" id="waitlistForm">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Get Early Access</button>
+        </form>
+        <div class="success-message" id="successMessage">Thank you! We've received your email.</div>
+        <div class="hero-images-container-row2">
+
+            <img style="width: 180px;" src="assets/sugarlevel.png" class="image image5" alt="Image 5">
+            <img style="width: 180px;padding-top: 50px;" src="assets/pulse.png" class="image image4" alt="Image 4">
+            <img style="width: 180px;" src="assets/nutri-compo.png" class="image image3" alt="Image 3">
+            
+            
+        </div>
+        
+
+
+        
+    </section>
+
+    <section class="motto-section">
+        <h2 class="motto">Trust. Science. Precision.<br>Your wellness, redefined.</h2>
+    </section>
+
+    <section class="features-section">
+        <h2>What Makes EPI Different?</h2>
+        <p class="features-tagline">⚡ The Science of You, Simplified.</p>
+        <p class="features-intro">
+            Unlike generic wellness apps, EPI is built on decades of metabolic research and integrates real-time health data with AI-driven insights.
+        </p>
+        
+        <div class="features-list">
+            <div class="feature-item">
+                <span class="feature-icon">📊</span>
+                <span>Metabolic Score: See how your body processes food & energy.</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🧬</span>
+                <span>Nutritional Score: AI-curated insights for better diet decisions.</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">⚡</span>
+                <span>Bio-Metabolic Age: Your true metabolic health age—not just a number.</span>
+            </div>
+        </div>
+
+        <p class="research-note">
+            <span style="color: #153be4;">🔬</span> Every insight is backed by peer-reviewed research and AI-driven precision.
+        </p>
+
+        <a href="#ai-section" class="cta-button">
+            See How It Works <span style="margin-left: 8px;">→</span>
+        </a>
+    </section>
+
+    <section id="ai-section" class="ai-section">
+        <p class="ai-subtitle">
+            <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+            </svg>
+            The AI Behind EPI: Your Meaningful Twin
+        </p>
+        <h3 class="ai-title">
+            <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+            A Smarter Way to Manage Your Health, Powered by AI
+        </h3>
+        <p class="ai-description">
+            EPI's Meaningful Twin is an intelligent, evidence-backed wellness guide that learns from your lifestyle, nutrition, and biomarkers to offer real-time recommendations.
+        </p>
+
+        <div class="steps-container">
+            <div class="step-item">
+                <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+                <div>
+                    <span class="step-number">01</span>
+                    <span class="step-content">Analyzes Your Data: Continuous health tracking, from glucose trends to nutrient intake.</span>
+                </div>
+            </div>
+            <div class="step-item">
+                <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <div>
+                    <span class="step-number">02</span>
+                    <span class="step-content">Learns & Adapts: AI-powered personalization adjusts advice in real-time.</span>
+                </div>
+            </div>
+            <div class="step-item">
+                <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <div>
+                    <span class="step-number">03</span>
+                    <span class="step-content">Predicts & Optimizes: Advanced AI forecasts future health risks and suggests preventive actions.</span>
+                </div>
+            </div>
+        </div>
+
+        <p class="ai-note">Your health isn't static—neither is EPI.</p>
+        <br>
+        <a href="#" class="cta-button">
+            Try the AI Demo <span style="margin-left: 8px;">→</span>
+        </a>
+
+    </section>
+
+    <section class="research-section">
+        <h2 class="research-title">
+            <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            The Science Behind EPI: Why It Works?
+        </h2>
+
+        <p class="research-intro">
+            <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+            </svg>
+            EPI is backed by cutting-edge medical research.
+            We work with top metabolic health experts, AI researchers, and data scientists to deliver actionable insights you can trust.
+        </p>
+
+        <div class="research-list">
+            <h3 style="color: #153be4; margin-bottom: 2rem; font-family: 'Poppins', sans-serif;">Scientific Backing:</h3>
+            
+            <div class="research-item">
+                <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Peer-Reviewed Studies: Published in top medical journals.</span>
+            </div>
+            
+            <div class="research-item">
+                <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+                <span>Precision Nutrition Research: AI-driven metabolic profiling.</span>
+            </div>
+            
+            <div class="research-item">
+                <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+                <span>Real-World Results: 92% of beta testers improve their metabolic score in 30 days.</span>
+            </div>
+        </div>
+
+
+        <a href="#" class="cta-button">
+            Explore Our Research <span style="margin-left: 8px;">→</span>
+        </a>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>People who have embraced the revolution said:</h2>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"EPI is the most advanced AI-driven wellness technology I've seen—finally, a tool that personalizes health with real science."</p>
+                    <div class="testimonial-author">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex" alt="Alex Wilson">
+                        <div class="author-info">
+                            <h4>Alex Wilson</h4>
+                            <span>Metabolic Health Expert</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"The ability to measure and track my metabolic score in real time has changed the way I approach my diet and fitness."</p>
+                    <div class="testimonial-author">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah" alt="Sarah Chen">
+                        <div class="author-info">
+                            <h4>Sarah Chen</h4>
+                            <span>Beta Tester</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"Great."</p>
+                    <div class="testimonial-author">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Marcus" alt="Marcus Johnson">
+                        <div class="author-info">
+                            <h4>Marcus Johnson</h4>
+                            <span>Beta tester</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"AI-driven health coaching that actually works—this is the future of wellness."</p>
+                    <div class="testimonial-author">
+                        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Emma" alt="Emma Rodriguez">
+                        <div class="author-info">
+                            <h4>Emma Rodriguez</h4>
+                            <span>Nutritionist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="interactive-section">
+        <h2 class="interactive-title">
+            See EPI in Action: Interactive Feature Section
+        </h2>
+
+        <div class="interactive-features">
+            <div class="interactive-feature">
+                <h3 class="feature-title">
+                    <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                    </svg>
+                    Live AI Demo
+                </h3>
+                <p class="feature-description">Watch How EPI Personalizes Your Wellness Plan.</p>
+            </div>
+
+            <div class="interactive-feature">
+                <h3 class="feature-title">
+                    <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    Interactive Dashboard Preview
+                </h3>
+                <p class="feature-description">Explore Your Metabolic Health Metrics.</p>
+            </div>
+
+            <div class="interactive-feature">
+                <h3 class="feature-title">
+                    <svg class="icon-container" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    AI Insights in Action
+                </h3>
+                <p class="feature-description">How EPI Learns & Adapts.</p>
+            </div>
+        </div>
+
+        <a href="#" class="cta-button">
+            Experience EPI <span style="margin-left: 8px;">→</span>
+        </a>
+    </section>
+
+    <section class="final-cta">
+        <h2 class="final-cta-title">Ready to Upgrade Your Health with AI?</h2>
+        <p class="final-cta-subtitle">Personalized. Data-Driven. Science-Backed.</p>
+        
+        <a href="#" class="cta-button">
+            Try EPI Today <span style="margin-left: 8px;">→</span>
+        </a>
+        
+        <p class="final-cta-note">📍 Be the first to access AI-driven metabolic precision.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 EPI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 2000);
+            
+            this.reset();
+        });
+
+        // Smooth scroll with animation
+        document.querySelector('a[href="#ai-section"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetSection = document.querySelector('#ai-section');
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // Add animation class after scrolling
+            setTimeout(() => {
+                targetSection.classList.add('scroll-reveal');
+            }, 300);
+            
+            // Remove animation class after it completes
+            setTimeout(() => {
+                targetSection.classList.remove('scroll-reveal');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
