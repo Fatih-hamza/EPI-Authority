@@ -697,6 +697,141 @@
             font-size: 1.2rem;
         }
 
+        /* Enhanced Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced Button Hover Effects */
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(90deg, #153be4, #153be4);
+            background-size: 200% auto;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover {
+            background-position: right center;
+            box-shadow: 0 0 20px rgba(21, 59, 228, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Navigation Hover Effects */
+        .nav-links a {
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, #153be4, #80D1FF);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Counter Animation */
+        .counter {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #153be4;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 768px) {
+            .cta-button {
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            /* Reduce animation intensity for mobile */
+            .fade-in {
+                transform: translateY(10px);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in {
+                transition: none;
+                transform: none;
+            }
+            
+            .cta-button::before {
+                display: none;
+            }
+        }
+
+        /* Data Visualization Styles */
+        .graph-container {
+            height: 200px;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .graph-point {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #153be4;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+
+        .graph-point.visible {
+            transform: scale(1);
+        }
+
+        .graph-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, #153be4, #80D1FF);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .graph-line.visible {
+            transform: scaleX(1);
+        }
+
     </style>
 </head>
 <body>
@@ -775,6 +910,15 @@
         <a href="#ai-section" class="cta-button">
             See How It Works <span style="margin-left: 8px;">→</span>
         </a>
+
+        <div class="graph-container">
+            <div class="graph-line"></div>
+            <div class="graph-point" style="left: 0%; bottom: 30%"></div>
+            <div class="graph-point" style="left: 25%; bottom: 45%"></div>
+            <div class="graph-point" style="left: 50%; bottom: 60%"></div>
+            <div class="graph-point" style="left: 75%; bottom: 80%"></div>
+            <div class="graph-point" style="left: 100%; bottom: 85%"></div>
+        </div>
     </section>
 
     <section id="ai-section" class="ai-section">
@@ -1024,6 +1168,80 @@
             setTimeout(() => {
                 targetSection.classList.remove('scroll-reveal');
             }, 1000);
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.classList.contains('counter-trigger')) {
+                        animateCounter(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Add fade-in class to sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('fade-in');
+            observer.observe(section);
+        });
+
+        // Counter animation function
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000; // 2 seconds
+            const start = 0;
+            const increment = target / (duration / 16); // 60fps
+            
+            let current = start;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.round(current);
+                }
+            }, 16);
+        }
+
+        // Performance optimization
+        let animationFrame;
+        function debounceAnimations(func) {
+            cancelAnimationFrame(animationFrame);
+            animationFrame = requestAnimationFrame(func);
+        }
+
+        // Touch event handling for mobile
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+        }
+
+        // Update the metrics observer to only watch graph points
+        const metricsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('graph-point')) {
+                        entry.target.classList.add('visible');
+                        const nextLine = entry.target.nextElementSibling;
+                        if (nextLine && nextLine.classList.contains('graph-line')) {
+                            nextLine.classList.add('visible');
+                        }
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.graph-point').forEach(el => {
+            metricsObserver.observe(el);
         });
     </script>
 </body>
